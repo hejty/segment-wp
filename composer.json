@@ -1,0 +1,21 @@
+{
+    "name" 			: "creativefuse/segment",
+    "description" 	: "A crazy awesome implementation of Segment Analytics for Wordpress.",
+    "type"          : "wordpress-muplugin",
+    "keywords" 		: ["wordpress", "wp", "plugin"],
+    "homepage" 		: "https://github.com/CreativeFuse/segment-wp",
+    "license" 		: "GPL-3.0+",
+    "authors": [
+        {
+            "name": "CreativeFuse",
+            "email": "support@creativefuse.org"
+        }
+     ],
+    "support": {
+      "issues": "https://github.com/CreativeFuse/segment-wp/issues"
+    },
+    "require": {
+        "php": ">=7.1",
+        "composer/installers" : "~1.0"
+    }
+}
