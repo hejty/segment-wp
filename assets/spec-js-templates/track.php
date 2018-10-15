@@ -17,19 +17,31 @@ use Segment\Helpers\Sanitize;
       analytics.track(<?= "'{$final_event_name}'", $final_properties, $final_options; ?> );
 
       <?php if ( $http_event ){ ?>
-            
-		jQuery( document ).ready( function( $ ) {
 
-			var data = {
+            window.addEventListener('DOMContentLoaded', async () => {
+                  const URL = '';
+
+                  const data = {
 				action : 'segment_unset_cookie',
 				key    : '<?= esc_js( $http_event ); ?>',
-			},
-			success = function( response ) {
-				console.log( response );
 			};
 
-			$.post( ajaxurl, data, success );
-		});
+                  const postDataAsync = (url, data) => {
+                        const config = {
+                              method: 'POST',
+                              headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                              },
+                              body: JSON.stringify(data),
+                        }
+
+                        return fetch(url, config);
+                  }
+
+                  const response = await (await postDataAsync(URL, data)).json();
+                  console.log({ response });
+            });
 
       <?php } ?>
 
